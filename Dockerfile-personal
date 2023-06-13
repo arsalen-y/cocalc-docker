@@ -89,6 +89,19 @@ RUN \
        nodejs \
        npm
 
+RUN \
+     apt-get update \
+  && DEBIAN_FRONTEND=noninteractive apt-get install -y \
+       software-properties-common \
+       texlive \
+       texlive-latex-extra \
+       texlive-extra-utils \
+       texlive-xetex \
+       texlive-luatex \
+       texlive-bibtex-extra \
+       texlive-science \
+       liblog-log4perl-perl
+
 # Install pnpm package manager that we now use instead of npm
 RUN umask 022 && npm install -g pnpm
 
